@@ -476,114 +476,96 @@ function openMap(encoded){
   setTimeout(()=>{window.location=web},600);
 }
 
+
+function normalizeLoadedData(raw){
+  // Accept either {groups:{...}} or the groups object directly.
+  const groups = raw && raw.groups ? raw.groups : raw;
+
+  const normalized = {};
+  for (const [community, entries] of Object.entries(groups || {})) {
+    normalized[community] = (entries || []).map(e => {
+      const gate =
+        e.gate ??
+        e.Gate ??
+        e["gate code"] ??
+        e["Gate Code"] ??
+        e.up_pass ??
+        e.upPass ??
+        e["up pass"] ??
+        e["Up Pass"] ??
+        e["UP PASS"] ??
+        e.code ??
+        e.Code ??
+        "";
+      const type =
+        e.type ??
+        e.Type ??
+        e["community type"] ??
+        e["Community Type"] ??
+        "";
+      return {
+        ...e,
+        gate: String(gate ?? "").trim(),
+        type: String(type ?? "").trim(),
+      };
+    });
+  }
+  return normalized;
+}
+
+
 function render(){
   const query=qInput.value.toLowerCase().trim();
 
-  const html=Object.entries(DATA).map(([community,entries])=>{
-    const filteredEntries=entries.filter(e=>{
-      const typeMatch = currentType==="All" || e.type===currentType;
-      if(!typeMatch) return false;
+  const html = Object.entries(DATA).map(([community, entries]) => {
+    const filtered = entries.filter(e => {
+      const typeMatch = currentType === "All" || e.type === currentType;
+      if (!typeMatch) return false;
 
-      if(!query) return true;
+      if (!query) return true;
 
       const gates = (e._gateTokens || []).join(" ");
       return (
-        String(e.address||"").toLowerCase().includes(query) ||
+        String(e.address || "").toLowerCase().includes(query) ||
         community.toLowerCase().includes(query) ||
-        String(e.gate||"").toLowerCase().includes(query) ||
+        String(e.gate || "").toLowerCase().includes(query) ||
         gates.includes(query)
       );
     });
 
-    if(!filteredEntries.length) return "";
-
-    const gateCodes = uniqPreserve(
-      filteredEntries.flatMap(e => (e._gateTokens || extractGateTokens(e.gate)))
-    );
-
-    const addresses = uniqPreserve(
-      filteredEntries.map(e => String(e.address||"").trim()).filter(Boolean)
-    );
-
-    const type = mostCommon(filteredEntries.map(e => e.type)) || "Unknown";
-
-    const firstAddr = addresses[0] || "";
-    const extraEntries = filteredEntries.slice(1);
-
-    // Group extra addresses by type for a cleaner expander
-    const byType = {};
-    for(const e of extraEntries){
-      const t = e.type || "Unknown";
-      (byType[t] ||= []).push(e);
-    }
-    const typeOrder = Object.keys(byType).sort((a,b)=>{
-      if (a === "Residential") return -1;
-      if (b === "Residential") return 1;
-      if (a === "Apartments") return -1;
-      if (b === "Apartments") return 1;
-      if (a === "Businesses") return -1;
-      if (b === "Businesses") return 1;
-      return a.localeCompare(b);
-    });
-
-    const extraHtml = extraEntries.length ? `
-      <details class="addr-details">
-        <summary>Show ${extraEntries.length} more address${extraEntries.length>1?"es":""}</summary>
-        <div class="addr-list">
-          ${typeOrder.map(t => `
-            <div class="addr-item" style="background:rgba(255,255,255,0.03);border-style:dashed;">
-              <strong style="font-size:13px;">${t}</strong>
-            </div>
-            ${byType[t].map(e => {
-              const addr = String(e.address||"").trim();
-              const chips = renderGateTags(e._gateTokens || [], 6);
-              return `
-                <div class="addr-item">
-                  ${addr}
-                  <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-                    <span class="tag type">${e.type}</span>
-                  </div>
-                  <div class="addr-chips">${chips}</div>
-                  <div style="margin-top:8px;">
-                    <span class="tag street"
-                      onclick="openMap('${encodeURIComponent(addr+', '+community+', Tucson, AZ')}')">
-                      Street View
-                    </span>
-                  </div>
-                </div>
-              `;
-            }).join("")}
-          `).join("")}
-        </div>
-      </details>
-    ` : "";
+    if (!filtered.length) return "";
 
     return `
       <div class="group">
         <div class="group-header">
           ${community}
-          <span>(${filteredEntries.length})</span>
+          <span>(${filtered.length})</span>
         </div>
 
-        <div class="entry">
-          ${firstAddr ? `<div class="address">${firstAddr}</div>` : `<div class="address">${community}</div>`}
-          <div class="location">${community} • ${type}</div>
+        ${filtered.map(e => {
+          const addr = String(e.address || "").trim();
+          const gateTokens = e._gateTokens || extractGateTokens(e.gate);
+          return `
+            <div class="entry">
+              <div class="address">${addr || community}</div>
+              <div class="location">${community} • ${e.type || "Unknown"}</div>
 
-          <div class="tags">
-            ${renderGateTags(gateCodes, 8)}
-            <span class="tag street"
-              onclick="openMap('${encodeURIComponent((firstAddr||community)+', '+community+', Tucson, AZ')}')">
-              Street View
-            </span>
-          </div>
-
-          ${extraHtml}
-        </div>
+              <div class="tags">
+                ${renderGateTags(gateTokens, 8)}
+                <span class="tag type">${e.type || "Unknown"}</span>
+                <span class="tag street"
+                  onclick="openMap('${encodeURIComponent((addr||community)+', '+community+', Tucson, AZ')}')">
+                  Street View
+                </span>
+              </div>
+            </div>
+          `;
+        }).join("")}
       </div>
     `;
   }).join("");
 
-  list.innerHTML=html||"<div style='padding:60px;text-align:center;color:#666;'>No results</div>";
+  list.innerHTML = html || "<div style='padding:60px;text-align:center;color:#666;'>No results</div>";
 }
 
 qInput.addEventListener('input',render);
