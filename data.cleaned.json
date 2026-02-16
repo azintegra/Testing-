@@ -1,0 +1,562 @@
+{
+  "meta": {
+    "total_rows_after_cleaning": 272,
+    "unique_communities": 141,
+    "duplicates_removed": 0,
+    "missing_gate_codes": 44,
+    "invalid_types_detected": [],
+    "type_distribution": {
+      "Apartments": 50,
+      "Residential": 218,
+      "Businesses": 4
+    }
+  },
+  "groups": {
+    "Aspire Tucson": [
+      {
+        "address": "905 N Tyndall Ave, Tucson",
+        "gate": "0820",
+        "type": "Residential"
+      }
+    ],
+    "Bear Canyon Apartments": [
+      {
+        "address": "9055 E Catalina Hwy, Tucson",
+        "gate": "4621",
+        "type": "Apartments"
+      }
+    ],
+    "Cabana Bridges": [
+      {
+        "address": "1102 E 36th St, Tucson",
+        "gate": "",
+        "type": "Residential"
+      }
+    ],
+    "Campus Crossings at Star Pass": [
+      {
+        "address": "2525 W Anklam Rd, Tucson",
+        "gate": "2525",
+        "type": "Residential"
+      }
+    ],
+    "Canoa Terrace": [
+      {
+        "address": "5812 S Azure Vista Way, Green Valley",
+        "gate": "3373",
+        "type": "Residential"
+      }
+    ],
+    "Casa Deena Apartments": [
+      {
+        "address": "638 E Elm St, Tucson",
+        "gate": "3052",
+        "type": "Apartments"
+      }
+    ],
+    "Casitas on Catalina": [
+      {
+        "address": "9125 E Catalina Hwy, Tucson",
+        "gate": "",
+        "type": "Residential"
+      }
+    ],
+    "Catalina Vista": [
+      {
+        "address": "2291 N Powder Horn Dr, Tucson",
+        "gate": "4128",
+        "type": "Residential"
+      }
+    ],
+    "Cortland on the Loop": [
+      {
+        "address": "50 W River Rd, Tucson",
+        "gate": "6160",
+        "type": "Residential"
+      }
+    ],
+    "Dakotah Hills": [
+      {
+        "address": "5675 N Camino Esplendora, Tucson",
+        "gate": "",
+        "type": "Residential"
+      }
+    ],
+    "Desert Springs Apartments": [
+      {
+        "address": "6710 E Golf Links Rd, Tucson",
+        "gate": "2020 0079",
+        "type": "Apartments"
+      }
+    ],
+    "Echo Luxury Apartments": [
+      {
+        "address": "6901 E Broadway Blvd, Tucson",
+        "gate": "",
+        "type": "Apartments"
+      }
+    ],
+    "Encantada Saguaro National": [
+      {
+        "address": "5750 S Houghton Rd, Tucson",
+        "gate": "6867",
+        "type": "Residential"
+      }
+    ],
+    "Gateway Apartments": [
+      {
+        "address": "1410 N Oracle Rd, Tucson",
+        "gate": "7308",
+        "type": "Apartments"
+      }
+    ],
+    "Hacienda Del Rio": [
+      {
+        "address": "3517 N Camino La Jicarrilla, Tucson",
+        "gate": "2745",
+        "type": "Residential"
+      }
+    ],
+    "Harrison Park Apartments": [
+      {
+        "address": "350 N Harrison Rd, Tucson",
+        "gate": "3373",
+        "type": "Apartments"
+      }
+    ],
+    "L6 Apartments": [
+      {
+        "address": "835 N 6th Ave, Tucson",
+        "gate": "3241",
+        "type": "Apartments"
+      }
+    ],
+    "La Hacienda Apartment Homes": [
+      {
+        "address": "6161 E Pima St, Tucson",
+        "gate": "",
+        "type": "Apartments"
+      }
+    ],
+    "Lalo Guerrero Apartments": [
+      {
+        "address": "111 S Church Ave, Tucson",
+        "gate": "7895",
+        "type": "Apartments"
+      }
+    ],
+    "Luna Azul": [
+      {
+        "address": "6300 / 6380 N Camino Verde, Marana",
+        "gate": "6262",
+        "type": "Residential"
+      }
+    ],
+    "Metro Tucson Apartments": [
+      {
+        "address": "3985 N Stone Ave, Tucson",
+        "gate": "1315",
+        "type": "Apartments"
+      }
+    ],
+    "Mira Vista Resort": [
+      {
+        "address": "7525 N Wade Rd, Marana",
+        "gate": "6854",
+        "type": "Residential"
+      }
+    ],
+    "Mission Tierra Apartments": [
+      {
+        "address": "5505 S Mission Rd (Mission Tierra Apts), Tucson",
+        "gate": "3373",
+        "type": "Apartments"
+      }
+    ],
+    "Oracle Palms Apartments": [
+      {
+        "address": "4045 N Oracle Rd, Tucson",
+        "gate": "",
+        "type": "Apartments"
+      }
+    ],
+    "Posada Del Rio": [
+      {
+        "address": "7424 E Speedway Blvd, Tucson",
+        "gate": "",
+        "type": "Residential"
+      }
+    ],
+    "Presidio Palms Apartments": [
+      {
+        "address": "475 N Granada Ave, Tucson",
+        "gate": "",
+        "type": "Apartments"
+      }
+    ],
+    "Rancho Vistoso": [
+      {
+        "address": "10767 N Cactus Point Dr, Oro Valley",
+        "gate": "0018 1026",
+        "type": "Residential"
+      },
+      {
+        "address": "11247 N Big Star Trail, Tucson",
+        "gate": "5225 1984",
+        "type": "Residential"
+      },
+      {
+        "address": "11274 N Gemini Dr, Oro Valley",
+        "gate": "0201",
+        "type": "Residential"
+      },
+      {
+        "address": "11449 N Meadow Sage Dr, Oro Valley",
+        "gate": "5515",
+        "type": "Residential"
+      },
+      {
+        "address": "11470 N Ironwood Canyon Pl, Oro Valley",
+        "gate": "1818",
+        "type": "Residential"
+      },
+      {
+        "address": "11532 N Desert Calico Loop, Tucson",
+        "gate": "2797",
+        "type": "Residential"
+      },
+      {
+        "address": "11573 N Copperbelle Pl, Oro Valley",
+        "gate": "7549",
+        "type": "Residential"
+      },
+      {
+        "address": "11583 N Ironwood Canyon Pl, Tucson",
+        "gate": "1818 3232",
+        "type": "Residential"
+      },
+      {
+        "address": "11750 N Sweet Orange Pl, Oro Valley",
+        "gate": "1005 8665",
+        "type": "Residential"
+      },
+      {
+        "address": "11794 N Silverscape Dr, Oro Valley",
+        "gate": "3275",
+        "type": "Residential"
+      },
+      {
+        "address": "11829 N Raphael Way, Oro Valley",
+        "gate": "0306",
+        "type": "Residential"
+      },
+      {
+        "address": "11831 N Raphael Way, Oro Valley",
+        "gate": "0819",
+        "type": "Residential"
+      },
+      {
+        "address": "12210 N Lopez Wells Ln, Oro Valley",
+        "gate": "1523",
+        "type": "Residential"
+      },
+      {
+        "address": "12301 N Cloud Ridge Dr, Oro Valley",
+        "gate": "6458",
+        "type": "Residential"
+      },
+      {
+        "address": "12309 N Washbed Dr, Oro Valley",
+        "gate": "0852",
+        "type": "Residential"
+      },
+      {
+        "address": "12490 N Faraway Wash Trl, Oro Valley",
+        "gate": "7677",
+        "type": "Residential"
+      },
+      {
+        "address": "12523 N New Reflection Dr, Oro Valley",
+        "gate": "1521",
+        "type": "Residential"
+      },
+      {
+        "address": "13169 N Rainbow Cactus Ct, Oro Valley",
+        "gate": "5863",
+        "type": "Residential"
+      },
+      {
+        "address": "13215 N Velvetweed Ct, Oro Valley",
+        "gate": "1031",
+        "type": "Residential"
+      },
+      {
+        "address": "13330 N Cape Marigold Dr, Oro Valley",
+        "gate": "1331",
+        "type": "Residential"
+      },
+      {
+        "address": "13359 N Cottontop Ct, Oro Valley",
+        "gate": "9172",
+        "type": "Residential"
+      },
+      {
+        "address": "13401 N Rancho Vistoso Blvd, Oro Valley",
+        "gate": "9515",
+        "type": "Residential"
+      },
+      {
+        "address": "13409 N Mariposa Lily Dr, Oro Valley",
+        "gate": "1225",
+        "type": "Residential"
+      },
+      {
+        "address": "13468 N Silver Cassia Pl, Oro Valley",
+        "gate": "9525",
+        "type": "Residential"
+      },
+      {
+        "address": "13710 N Carlynn Cliff Dr, Oro Valley",
+        "gate": "1269",
+        "type": "Residential"
+      },
+      {
+        "address": "1644 W Sage Hill Dr, Oro Valley",
+        "gate": "5066",
+        "type": "Residential"
+      },
+      {
+        "address": "1970 W Old Magee Trl Apt 5202, Oro Valley",
+        "gate": "1970",
+        "type": "Residential"
+      },
+      {
+        "address": "2225 W Sculptor St, Oro Valley",
+        "gate": "2012 1815",
+        "type": "Residential"
+      },
+      {
+        "address": "2305 W Naranja Dr, Oro Valley",
+        "gate": "8479",
+        "type": "Residential"
+      },
+      {
+        "address": "2305 W Naranja Dr, Oro Valley, Tucson",
+        "gate": "8479",
+        "type": "Residential"
+      },
+      {
+        "address": "365 E Day Flower Dr, Oro Valley",
+        "gate": "2825",
+        "type": "Residential"
+      },
+      {
+        "address": "5238 N Corral Canyon Pl, Oro Valley",
+        "gate": "9775",
+        "type": "Residential"
+      },
+      {
+        "address": "625 N Arizona Estates Loop, Oro Valley",
+        "gate": "2380",
+        "type": "Residential"
+      },
+      {
+        "address": "7963 N Placita Del Chango, Oro Valley",
+        "gate": "4000",
+        "type": "Residential"
+      }
+    ],
+    "Rendezvous Urban Flats": [
+      {
+        "address": "20 S Stone Ave, Tucson",
+        "gate": "",
+        "type": "Apartments"
+      }
+    ],
+    "Sabino Mountain": [
+      {
+        "address": "4081 N Quail Canyon Dr, Tucson",
+        "gate": "0685",
+        "type": "Residential"
+      }
+    ],
+    "Sandstone Apartments": [
+      {
+        "address": "405 E Prince Rd, Tucson",
+        "gate": "27037",
+        "type": "Apartments"
+      }
+    ],
+    "Sedona Pointe Apartments": [
+      {
+        "address": "2701 N Oracle Rd, Tucson",
+        "gate": "1919",
+        "type": "Apartments"
+      }
+    ],
+    "Shadowtree Apartments": [
+      {
+        "address": "201 N Wilmot Rd, Tucson",
+        "gate": "",
+        "type": "Apartments"
+      }
+    ],
+    "Skyline Gateway Apartments": [
+      {
+        "address": "4601 E Skyline Dr, Tucson",
+        "gate": "",
+        "type": "Apartments"
+      }
+    ],
+    "Solana Spanish Villas": [
+      {
+        "address": "10700 E Tanque Verde Rd, Tucson",
+        "gate": "",
+        "type": "Residential"
+      }
+    ],
+    "Stonewood Apartments": [
+      {
+        "address": "2621 N Estrella Ave, Tucson",
+        "gate": "2621",
+        "type": "Apartments"
+      }
+    ],
+    "Sunset Dunes": [
+      {
+        "address": "4800 Sunset Rd, Marana",
+        "gate": "1058 1927 8501",
+        "type": "Residential"
+      }
+    ],
+    "The Flash Apartments": [
+      {
+        "address": "902 S 6th Ave, Tucson",
+        "gate": "5563",
+        "type": "Apartments"
+      }
+    ],
+    "The Flin": [
+      {
+        "address": "110 S Church Ave, Tucson",
+        "gate": "",
+        "type": "Residential"
+      }
+    ],
+    "The Gallery on Fifth": [
+      {
+        "address": "127 S 5th Ave, Tucson",
+        "gate": "",
+        "type": "Residential"
+      }
+    ],
+    "The Pines": [
+      {
+        "address": "8480 N Continental Links Dr, Marana",
+        "gate": "0124",
+        "type": "Residential"
+      }
+    ],
+    "The Place at Riverwalk": [
+      {
+        "address": "3510 N Craycroft Rd, Tucson",
+        "gate": "",
+        "type": "Residential"
+      }
+    ],
+    "The Retreat at Speedway": [
+      {
+        "address": "7401 E Speedway Blvd, Tucson",
+        "gate": "",
+        "type": "Residential"
+      }
+    ],
+    "Tucson House": [
+      {
+        "address": "1501 N Oracle Rd, Tucson",
+        "gate": "",
+        "type": "Residential"
+      }
+    ],
+    "Two East Congress": [
+      {
+        "address": "2 E Congress St, Tucson",
+        "gate": "",
+        "type": "Residential"
+      }
+    ],
+    "Union on 6th": [
+      {
+        "address": "316 & 340 E 6th St, Tucson",
+        "gate": "0340",
+        "type": "Residential"
+      }
+    ],
+    "University Vista Apartments": [
+      {
+        "address": "951 E 10th St, Tucson",
+        "gate": "",
+        "type": "Apartments"
+      }
+    ],
+    "Ventura Villas": [
+      {
+        "address": "238 W Ventura St, Tucson",
+        "gate": "1102",
+        "type": "Residential"
+      }
+    ],
+    "Villa Delano Apartments": [
+      {
+        "address": "255-243 E Delano St, Tucson",
+        "gate": "1225",
+        "type": "Apartments"
+      }
+    ],
+    "Oliv Tucson Apartments": [
+      {
+        "address": "900 E 2nd St, Tucson",
+        "gate": "0354",
+        "type": "Apartments"
+      }
+    ],
+    "Arbol De La Vida": [
+      {
+        "address": "515 N Tyndall Ave E405, Tucson",
+        "gate": "8318",
+        "type": "Residential"
+      }
+    ],
+    "Agave Apartments": [
+      {
+        "address": "444 W Orange Grove Rd, Tucson",
+        "gate": "6417",
+        "type": "Apartments"
+      }
+    ],
+    "Amphi": [
+      {
+        "address": "1560 W Fort Lowell, Tucson",
+        "gate": "7025",
+        "type": "Residential"
+      }
+    ],
+    "Lakes at Castle Rock": [
+      {
+        "address": "2444 N Lightning A Dr, Marana",
+        "gate": "5219",
+        "type": "Residential"
+      },
+      {
+        "address": "9433 E Star Water Dr, Tucson",
+        "gate": "0553",
+        "type": "Residential"
+      },
+      {
+        "address": "9247 E Lakeside Ct, Tucson",
+        "gate": "1957",
+        "type": "Residential"
+      }
+    ]
+  }
+}
