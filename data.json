@@ -1,13 +1,13 @@
 {
   "meta": {
-    "total_rows_after_cleaning": 272,
-    "unique_communities": 141,
+    "total_rows_after_cleaning": 277,
+    "unique_communities": 144,
     "duplicates_removed": 0,
-    "missing_gate_codes": 44,
+    "missing_gate_codes": 28,
     "invalid_types_detected": [],
     "type_distribution": {
-      "Apartments": 50,
-      "Residential": 218,
+      "Residential": 239,
+      "Apartments": 34,
       "Businesses": 4
     }
   },
@@ -30,7 +30,7 @@
       {
         "address": "1102 E 36th St, Tucson",
         "gate": "",
-        "type": "Residential"
+        "type": "Apartments"
       }
     ],
     "Campus Crossings at Star Pass": [
@@ -114,6 +114,11 @@
       {
         "address": "3517 N Camino La Jicarrilla, Tucson",
         "gate": "2745",
+        "type": "Residential"
+      },
+      {
+        "address": "3381 N Camino La Jicarilla, Tucson",
+        "gate": "3381",
         "type": "Residential"
       }
     ],
@@ -909,18 +914,8 @@
         "type": "Residential"
       },
       {
-        "address": "3381 N Camino La Jicarilla, Tucson",
-        "gate": "8342",
-        "type": "Residential"
-      },
-      {
         "address": "3423 N Camino La Jicarilla, Tucson",
         "gate": "4295",
-        "type": "Residential"
-      },
-      {
-        "address": "3898 N Camino Ojo De Agua, Tucson",
-        "gate": "3434",
         "type": "Residential"
       },
       {
@@ -1024,13 +1019,6 @@
       {
         "address": "4700 W Prince Rd, Tucson",
         "gate": "8888",
-        "type": "Residential"
-      }
-    ],
-    "Foothills / Sabino": [
-      {
-        "address": "7430 E Calle Perpetuo, Tucson",
-        "gate": "2030 | 0351",
         "type": "Residential"
       }
     ],
@@ -1175,13 +1163,6 @@
         "type": "Residential"
       }
     ],
-    "Miracle Mile": [
-      {
-        "address": "1202 W Miracle Mile, Tucson",
-        "gate": "1210",
-        "type": "Residential"
-      }
-    ],
     "Mission Area": [
       {
         "address": "5505 S Mission Rd, Tucson",
@@ -1227,13 +1208,6 @@
         "type": "Apartments"
       }
     ],
-    "Pepper Ridge": [
-      {
-        "address": "7566 W Pepper Ridge Rd, Tucson",
-        "gate": "",
-        "type": "Residential"
-      }
-    ],
     "Pima Canyon Apartments": [
       {
         "address": "750 W Orange Grove Rd, Tucson",
@@ -1265,6 +1239,11 @@
     "Rancho Esperero": [
       {
         "address": "245-2489 Paseo Rancho Esperanza, Tucson",
+        "gate": "2030 | 0351",
+        "type": "Residential"
+      },
+      {
+        "address": "7430 E Calle Perpetuo, Tucson",
         "gate": "2030 | 0351",
         "type": "Residential"
       }
@@ -1372,6 +1351,16 @@
       {
         "address": "14013 E Crotalus Way, Vail",
         "gate": "0318 0725 0122 0323",
+        "type": "Residential"
+      },
+      {
+        "address": "8112 S Jaeger Pl, Vail",
+        "gate": "8516",
+        "type": "Residential"
+      },
+      {
+        "address": "8545 S Circle C Ranch Rd, Vail",
+        "gate": "4226",
         "type": "Residential"
       }
     ],
@@ -1652,6 +1641,48 @@
         "address": "12051 W Fort Lowell Rd, Marana",
         "gate": "2591",
         "type": "Businesses"
+      }
+    ],
+    "Canada Verde Estates": [
+      {
+        "address": "3898 N Camino Ojo De Agua, Tucson",
+        "gate": "3898",
+        "type": "Residential"
+      }
+    ],
+    "Friendly Village Estates": [
+      {
+        "address": "1202 W Miracle Mile, Tucson",
+        "gate": "1103",
+        "type": "Residential"
+      }
+    ],
+    "Sierra Crest / Continental Reserve": [
+      {
+        "address": "7566 W Pepper Ridge Rd, Tucson",
+        "gate": "0613",
+        "type": "Residential"
+      }
+    ],
+    "The Woods at Midvale Park": [
+      {
+        "address": "1970 W Valencia Rd Apt 200, Tucson",
+        "gate": "1858",
+        "type": "Apartments"
+      }
+    ],
+    "Moderne at Rocking K": [
+      {
+        "address": "7720 S Rocking K Ranch Loop Unit 14, Vail",
+        "gate": "643810",
+        "type": "Apartments"
+      }
+    ],
+    "Rocking K (Neighborhood 1)": [
+      {
+        "address": "7794 S Golden Bell Dr, Vail",
+        "gate": "6661",
+        "type": "Residential"
       }
     ]
   }
