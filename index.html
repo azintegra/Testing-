@@ -236,6 +236,7 @@ h1{
 
 <header>
   <h1>Flex Gate & Locker Codes</h1>
+<div id="buildInfo" style="margin-top:-6px;color:#6b7280;font-size:12px;">Build v7 • loading…</div>
   <div class="search">
     <input id="q" placeholder="Search address, community, gate"/>
   </div>
@@ -250,7 +251,14 @@ h1{
 <main id="list"></main>
 
 <script>
-let DATA = {}; // merged groups: { displayCommunityName: entries[] }
+let DATA = {};
+let DATA_VERSION = "v7";
+let LOADED_FROM = "";
+function setBuildInfo(msg){
+  const el = document.getElementById("buildInfo");
+  if(el) el.textContent = msg;
+}
+ // merged groups: { displayCommunityName: entries[] }
 let currentType="All";
 
 const qInput=document.getElementById('q');
@@ -580,19 +588,38 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
 });
 
 /* Prefer cleaned data if present; fallback to raw */
-fetch('data.cleaned.json')
-  .then(r => r.ok ? r.json() : Promise.reject())
-  .then(data=>{
-    DATA = data.groups;
-    render();
-  })
-  .catch(()=>{
-    fetch('data.json')
-      .then(r=>r.json())
-      .then(data=>{
-        DATA = normalizeAndMergeGroups(data.groups);
-        render();
-      });
+async function loadData(){
+  const candidates = ["data.cleaned.json", "data.json"];
+  for (const path of candidates){
+    try{
+      const r = await fetch(path, { cache: "no-store" });
+      if(!r.ok) throw new Error(String(r.status));
+      const data = await r.json();
+      LOADED_FROM = path;
+      DATA = normalizeLoadedData(data);
+      const groupCount = Object.keys(DATA || {}).length;
+      const entryCount = Object.values(DATA || {}).reduce((a,arr)=> a + (arr?.length||0), 0);
+      const sample = (() => {
+        for(const arr of Object.values(DATA||{})){
+          for(const e of (arr||[])){
+            const gt = (e._gateTokens||extractGateTokens(e.gate)||[]);
+            if(gt.length) return gt[0];
+          }
+        }
+        return "";
+      })();
+      setBuildInfo(`Build ${DATA_VERSION} • ${LOADED_FROM} • ${groupCount} groups • ${entryCount} entries${sample?` • sample gate ${sample}`:" • no gates found"}`);
+      console.log("[GateCodes] loaded", {path: LOADED_FROM, groupCount, entryCount});
+      render();
+      return;
+    }catch(err){
+      console.warn("[GateCodes] failed to load", path, err);
+    }
+  }
+  setBuildInfo(`Build ${DATA_VERSION} • failed to load data.json`);
+  list.innerHTML = "<div style='padding:60px;text-align:center;color:#666;'>Failed to load data.json</div>";
+}
+loadData();
   });
 
 /* Auto-close "+more" gate dropdown when tapping outside */
