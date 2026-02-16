@@ -4,9 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 <title>Flex Gate & Locker Codes</title>
-
-<link rel="manifest" href="manifest.json">
-
 <style>
 :root{
   --bg:#000;
@@ -14,6 +11,7 @@
   --text:#f5f5f7;
   --sub:#9ca3af;
   --accent:#3b82f6;
+  --danger:#ef4444;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -23,7 +21,7 @@ body{
   color:var(--text);
   background:radial-gradient(circle at top,#111 0%,#000 65%);
   -webkit-font-smoothing:antialiased;
-  padding-bottom:28px;
+  padding-bottom:40px;
 }
 
 header{
@@ -39,7 +37,14 @@ header{
 h1{
   font-size:26px;
   font-weight:700;
-  margin-bottom:14px;
+  margin-bottom:6px;
+}
+
+#buildInfo{
+  color:#6b7280;
+  font-size:12px;
+  margin-bottom:12px;
+  min-height:16px;
 }
 
 .search input{
@@ -56,7 +61,6 @@ h1{
   display:flex;
   gap:10px;
   margin-top:14px;
-  flex-wrap:wrap;
 }
 
 .filter-btn{
@@ -82,7 +86,7 @@ h1{
   border:1px solid rgba(255,255,255,0.05);
   box-shadow:0 10px 30px rgba(0,0,0,.5);
   overflow:hidden;
-  animation:fadeIn .3s ease;
+  animation:fadeIn .25s ease;
 }
 
 @keyframes fadeIn{
@@ -91,23 +95,22 @@ h1{
 }
 
 .group-header{
-  padding:18px 22px;
-  font-weight:600;
+  padding:16px 20px;
+  font-weight:650;
   font-size:15px;
   background:rgba(255,255,255,0.03);
-  cursor:pointer;
   display:flex;
   justify-content:space-between;
 }
 
 .entry{
-  padding:18px 22px;
+  padding:16px 20px;
   border-top:1px solid rgba(255,255,255,0.05);
 }
 
 .address{
   font-size:16px;
-  font-weight:600;
+  font-weight:650;
   margin-bottom:6px;
 }
 
@@ -117,111 +120,43 @@ h1{
   margin-bottom:12px;
 }
 
-/* Existing tag look */
 .tags{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
+  align-items:center;
 }
 
 .tag{
-  padding:7px 16px;
+  padding:8px 14px;
   border-radius:999px;
   font-size:12px;
   cursor:pointer;
-  transition:all .15s ease;
+  transition:transform .12s ease, background .12s ease, border-color .12s ease;
+  user-select:none;
 }
 
-.tag:active{
-  transform:scale(.9);
+.tag:active{ transform:scale(.97); }
+
+.tag.gate{
+  background:rgba(59,130,246,.22);
+  border:1px solid rgba(59,130,246,.25);
+  color:#93c5fd;
 }
 
-.tag.street{
-  background:rgba(255,255,255,.08);
+.tag.gate.more{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.10);
+  color:var(--sub);
 }
 
 .tag.gate.missing{
-  background:#7f1d1d;
+  background:rgba(239,68,68,.18);
+  border:1px solid rgba(239,68,68,.25);
   color:#fca5a5;
+  cursor:default;
 }
 
-/* Cleaner gate tag layout (keeps your current look) */
-.tags.gates{ gap:8px; }
-
-.tag.gate{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  background:rgba(59,130,246,.25);
-  color:#60a5fa;
-  font-variant-numeric:tabular-nums;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-}
-
-/* "+more" pill */
-.tag.more{
-  background:rgba(255,255,255,.06);
-  border:1px dashed rgba(255,255,255,.18);
-  color:var(--sub);
-}
-
-/* Expand area */
-.gate-expand{ margin-top:10px; }
-.gate-expand summary{
-  display:inline-flex;
-  cursor:pointer;
-  user-select:none;
-  list-style:none;
-}
-.gate-expand summary::-webkit-details-marker{ display:none; }
-.gate-grid{
-  margin-top:10px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-
-/* Addresses expander */
-.addr-details{
-  margin-top:10px;
-  border-top:1px solid rgba(255,255,255,0.06);
-  padding-top:10px;
-}
-
-.addr-details summary{
-  cursor:pointer;
-  color:var(--sub);
-  font-size:13px;
-  list-style:none;
-}
-
-.addr-details summary::-webkit-details-marker{display:none}
-
-.addr-list{
-  margin-top:10px;
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-
-.addr-item{
-  padding:10px 12px;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.05);
-  border-radius:12px;
-  font-size:13px;
-  color:var(--text);
-}
-
-/* Per-address gate chips inside expander */
-.addr-chips{
-  margin-top:8px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-
-/* Type pill */
 .tag.type{
   background:rgba(255,255,255,.06);
   border:1px solid rgba(255,255,255,.10);
@@ -229,17 +164,23 @@ h1{
   cursor:default;
 }
 
+.tag.street{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.10);
+}
+
 </style>
 </head>
 
 <body>
-
 <header>
   <h1>Flex Gate & Locker Codes</h1>
-<div id="buildInfo" style="margin-top:-6px;color:#6b7280;font-size:12px;">Build v7 • loading…</div>
+  <div id="buildInfo">Build v9 • loading…</div>
+
   <div class="search">
     <input id="q" placeholder="Search address, community, gate"/>
   </div>
+
   <div class="filters">
     <button class="filter-btn active" data-type="All">All</button>
     <button class="filter-btn" data-type="Apartments">Apartments</button>
@@ -252,290 +193,87 @@ h1{
 
 <script>
 let DATA = {};
-let DATA_VERSION = "v7";
-let LOADED_FROM = "";
+let currentType = "All";
+
+const DATA_VERSION = "v9";
+const PROJECT_FALLBACK = "Testing-"; // change if your repo name changes
+const qInput = document.getElementById("q");
+const list = document.getElementById("list");
+
 function setBuildInfo(msg){
   const el = document.getElementById("buildInfo");
-  if(el) el.textContent = msg;
-}
- // merged groups: { displayCommunityName: entries[] }
-let currentType="All";
-
-const qInput=document.getElementById('q');
-const list=document.getElementById('list');
-
-const DIGIT_RE = /\\d+/g;
-const NON_ALNUM_TO_SPACE_RE = /[^a-z0-9]+/g;
-
-function stripAccents(s){
-  return (s||"").normalize("NFKD").replace(/[\\u0300-\\u036f]/g,"");
-}
-function cleanSpaces(s){
-  return String(s||"").trim().replace(/\\s+/g," ");
+  if (el) el.textContent = msg;
 }
 
-function titleCaseSmart(s){
-  const small = new Set(["a","an","and","as","at","but","by","for","from","in","into","near","nor","of","on","or","over","the","to","up","via","with"]);
-  const words = cleanSpaces(s).split(" ").filter(Boolean);
-  return words.map((w,i)=>{
-    if (/^\\d+$/.test(w)) return w;
-    const upper = w.toUpperCase();
-    if (w.length <= 3 && w === upper && /[A-Z]/.test(w)) return w;
-    const lower = w.toLowerCase();
-    if (i !== 0 && small.has(lower)) return lower;
-    return lower.charAt(0).toUpperCase() + lower.slice(1);
-  }).join(" ");
-}
+window.addEventListener("error", (e) => {
+  setBuildInfo(`Build ${DATA_VERSION} • JS error: ${e.message || "unknown"}`);
+});
+window.addEventListener("unhandledrejection", () => {
+  setBuildInfo(`Build ${DATA_VERSION} • Promise error`);
+});
 
-function normCommunity(name){
-  const base = stripAccents(cleanSpaces(name)).toLowerCase();
-  return cleanSpaces(base.replace(NON_ALNUM_TO_SPACE_RE, " "));
-}
-
-function expandAbbrevTokens(tokens){
-  const map = new Map([
-    ["n","north"], ["s","south"], ["e","east"], ["w","west"],
-    ["ne","northeast"], ["nw","northwest"], ["se","southeast"], ["sw","southwest"],
-
-    ["rd","road"], ["st","street"], ["ave","avenue"], ["av","avenue"],
-    ["blvd","boulevard"], ["dr","drive"], ["ln","lane"], ["pl","place"],
-    ["ct","court"], ["cir","circle"], ["trl","trail"], ["pkwy","parkway"],
-    ["hwy","highway"], ["mt","mount"], ["ste","suite"], ["apt","apartment"],
-    ["apts","apartments"], ["unit","unit"], ["bldg","building"],
-  ]);
-  return tokens.map(t => map.get(t.toLowerCase()) || t.toLowerCase());
-}
-
-function normAddress(addr){
-  const base = stripAccents(cleanSpaces(addr)).toLowerCase();
-  const cleaned = cleanSpaces(base.replace(NON_ALNUM_TO_SPACE_RE, " "));
-  const toks = cleaned.split(" ").filter(Boolean);
-  return expandAbbrevTokens(toks).join(" ");
+function openMap(encoded){
+  const app = `comgooglemaps://?q=${encoded}`;
+  const web = `https://www.google.com/maps/search/?api=1&query=${encoded}`;
+  window.location = app;
+  setTimeout(() => { window.location = web; }, 600);
 }
 
 function extractGateTokens(raw){
-  const m = String(raw||"").match(DIGIT_RE);
-  return m ? m : [];
-}
-
-function uniqPreserve(arr){
-  const seen=new Set();
-  const out=[];
-  for(const x of arr){
-    if(seen.has(x)) continue;
-    seen.add(x);
-    out.push(x);
+  const s = String(raw ?? "");
+  const tokens = s.match(/\d+/g) || [];
+  const out = [];
+  const seen = new Set();
+  for (const t of tokens){
+    if (!seen.has(t)){
+      seen.add(t);
+      out.push(t);
+    }
   }
   return out;
 }
 
-function mostCommon(arr){
-  const counts = new Map();
-  for(const v of arr.filter(Boolean)){
-    counts.set(v, (counts.get(v)||0)+1);
-  }
-  let best="", bestN=-1;
-  for(const [k,n] of counts.entries()){
-    if(n>bestN){best=k;bestN=n;}
-  }
-  return best;
-}
-
-function normType(t){
-  const raw = cleanSpaces(t).toLowerCase();
-  const k = raw.replace(/[^a-z]+/g, " ").trim();
-
-  if (!k) return "Unknown";
-  if (["apt","apts","apartment","apartments"].includes(k)) return "Apartments";
-  if (k.includes("apartment")) return "Apartments";
-
-  if (["residential","residence","home","homes","housing"].includes(k)) return "Residential";
-  if (k.includes("residential")) return "Residential";
-
-  if (["business","businesses","commercial"].includes(k)) return "Businesses";
-  if (k.includes("business") || k.includes("commercial")) return "Businesses";
-
-  if (k.includes("student")) return "Residential";
-  return titleCaseSmart(k);
-}
-
-function scoreDisplayString(s){
-  const str = String(s||"");
-  if(!str) return -1e9;
-  const words = str.split(" ").filter(Boolean);
-  let caps = 0;
-  let lowers = 0;
-  for(const w of words){
-    if (/^[A-Z]/.test(w)) caps++;
-    if (w === w.toLowerCase()) lowers++;
-  }
-  return caps*3 - lowers*2 - Math.abs(str.length - 28)*0.05;
-}
-
-function pickBestDisplay(values){
-  const uniq = uniqPreserve(values.filter(Boolean).map(v=>cleanSpaces(v)));
-  if(!uniq.length) return "";
-  let best = uniq[0];
-  let bestScore = scoreDisplayString(best);
-  for(const v of uniq.slice(1)){
-    const sc = scoreDisplayString(v);
-    if(sc > bestScore){
-      best = v;
-      bestScore = sc;
-    }
-  }
-  return best;
-}
-
-function sortGateTokens(tokens){
-  return [...tokens].sort((a,b)=>{
-    const ai = parseInt(a,10);
-    const bi = parseInt(b,10);
-    if(ai !== bi) return ai - bi;
-    return a.length - b.length;
-  });
-}
-
-function renderGateTags(tokens, maxVisible=8){
-  const sorted = sortGateTokens(tokens);
-  if(!sorted.length){
+function renderGateTags(tokens, maxShown){
+  if (!tokens || !tokens.length){
     return `<span class="tag gate missing">No gate codes listed</span>`;
   }
-
-  const visible = sorted.slice(0, maxVisible);
-  const hidden = sorted.slice(maxVisible);
-
-  const visibleHtml = visible.map(code => `<span class="tag gate">#${code}</span>`).join("");
-
-  if(!hidden.length){
-    return `<div class="tags gates">${visibleHtml}</div>`;
-  }
-
-  const hiddenHtml = hidden.map(code => `<span class="tag gate">#${code}</span>`).join("");
-
-  return `
-    <div class="tags gates">
-      ${visibleHtml}
-      <details class="gate-expand">
-        <summary class="tag more">+${hidden.length} more</summary>
-        <div class="gate-grid">${hiddenHtml}</div>
-      </details>
-    </div>
-  `;
+  const shown = tokens.slice(0, maxShown);
+  const hidden = tokens.slice(maxShown);
+  const chips = shown.map(t => `<span class="tag gate">#${t}</span>`).join("");
+  if (!hidden.length) return chips;
+  const label = `+${hidden.length} more`;
+  return chips + `<span class="tag gate more" title="${hidden.join(" ")}">${label}</span>`;
 }
-
-function normalizeAndMergeGroups(groups){
-  const buckets = new Map();
-  for(const [community, entries] of Object.entries(groups||{})){
-    const commNorm = normCommunity(community);
-    if(!buckets.has(commNorm)){
-      buckets.set(commNorm, { entries: [] });
-    }
-    const bucket = buckets.get(commNorm);
-    if(Array.isArray(entries)) bucket.entries.push(...entries);
-  }
-
-  const merged = {};
-
-  for(const [commNorm, bucket] of buckets.entries()){
-    const displayCommunity = titleCaseSmart(commNorm);
-
-    const byAddr = new Map();
-    for(const raw of bucket.entries){
-      const address = cleanSpaces(raw?.address);
-      const type = normType(raw?.type);
-      const gateRaw = cleanSpaces(raw?.gate);
-
-      const addrNorm = normAddress(address);
-      if(!byAddr.has(addrNorm)){
-        byAddr.set(addrNorm, { addresses: [], types: [], gatesRaw: [] });
-      }
-      const agg = byAddr.get(addrNorm);
-      agg.addresses.push(address);
-      agg.types.push(type);
-      agg.gatesRaw.push(gateRaw);
-    }
-
-    const entriesOut = [];
-    for(const [addrNorm, agg] of byAddr.entries()){
-      const bestAddress = pickBestDisplay(agg.addresses) || titleCaseSmart(addrNorm);
-      const bestType = mostCommon(agg.types) || "Unknown";
-      const gateTokens = uniqPreserve(agg.gatesRaw.flatMap(g=>extractGateTokens(g)));
-      entriesOut.push({
-        address: bestAddress,
-        type: bestType,
-        gate: gateTokens.join(" "),
-        _addrNorm: addrNorm,
-        _commNorm: commNorm,
-        _gateTokens: gateTokens,
-      });
-    }
-
-    merged[displayCommunity] = entriesOut;
-  }
-
-  return merged;
-}
-
-function openMap(encoded){
-  const app=`comgooglemaps://?q=${encoded}`;
-  const web=`https://www.google.com/maps/search/?api=1&query=${encoded}`;
-  window.location=app;
-  setTimeout(()=>{window.location=web},600);
-}
-
 
 function normalizeLoadedData(raw){
-  // Accept either {groups:{...}} or the groups object directly.
   const groups = raw && raw.groups ? raw.groups : raw;
-
   const normalized = {};
-  for (const [community, entries] of Object.entries(groups || {})) {
+  for (const [community, entries] of Object.entries(groups || {})){
     normalized[community] = (entries || []).map(e => {
       const gate =
-        e.gate ??
-        e.Gate ??
-        e["gate code"] ??
-        e["Gate Code"] ??
-        e.up_pass ??
-        e.upPass ??
-        e["up pass"] ??
-        e["Up Pass"] ??
-        e["UP PASS"] ??
-        e.code ??
-        e.Code ??
-        "";
-      const type =
-        e.type ??
-        e.Type ??
-        e["community type"] ??
-        e["Community Type"] ??
-        "";
-      return {
-        ...e,
-        gate: String(gate ?? "").trim(),
-        type: String(type ?? "").trim(),
-      };
+        e.gate ?? e.Gate ?? e["gate code"] ?? e["Gate Code"] ??
+        e.up_pass ?? e.upPass ?? e["up pass"] ?? e["Up Pass"] ?? e["UP PASS"] ??
+        e.code ?? e.Code ?? "";
+      const type = e.type ?? e.Type ?? e["community type"] ?? e["Community Type"] ?? "";
+      return { ...e, gate: String(gate ?? "").trim(), type: String(type ?? "").trim() };
     });
   }
   return normalized;
 }
 
-
 function render(){
-  const query=qInput.value.toLowerCase().trim();
+  const query = qInput.value.toLowerCase().trim();
 
   const html = Object.entries(DATA).map(([community, entries]) => {
-    const filtered = entries.filter(e => {
-      const typeMatch = currentType === "All" || e.type === currentType;
+    const filtered = (entries || []).filter(e => {
+      const typeMatch = currentType === "All" || (e.type || "") === currentType;
       if (!typeMatch) return false;
-
       if (!query) return true;
 
-      const gates = (e._gateTokens || []).join(" ");
+      const gates = (e._gateTokens || extractGateTokens(e.gate)).join(" ");
       return (
         String(e.address || "").toLowerCase().includes(query) ||
-        community.toLowerCase().includes(query) ||
+        String(community || "").toLowerCase().includes(query) ||
         String(e.gate || "").toLowerCase().includes(query) ||
         gates.includes(query)
       );
@@ -557,12 +295,10 @@ function render(){
             <div class="entry">
               <div class="address">${addr || community}</div>
               <div class="location">${community} • ${e.type || "Unknown"}</div>
-
               <div class="tags">
                 ${renderGateTags(gateTokens, 8)}
                 <span class="tag type">${e.type || "Unknown"}</span>
-                <span class="tag street"
-                  onclick="openMap('${encodeURIComponent((addr||community)+', '+community+', Tucson, AZ')}')">
+                <span class="tag street" onclick="openMap('${encodeURIComponent((addr||community)+', '+community+', Tucson, AZ')}')">
                   Street View
                 </span>
               </div>
@@ -576,77 +312,77 @@ function render(){
   list.innerHTML = html || "<div style='padding:60px;text-align:center;color:#666;'>No results</div>";
 }
 
-qInput.addEventListener('input',render);
+qInput.addEventListener("input", render);
 
-document.querySelectorAll('.filter-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    currentType=btn.dataset.type;
+document.querySelectorAll(".filter-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    currentType = btn.dataset.type;
     render();
   });
 });
 
-/* Prefer cleaned data if present; fallback to raw */
+function candidatesForCurrentLocation(){
+  const here = new URL(window.location.href);
+  const basePath = here.pathname.endsWith("/") ? here.pathname : here.pathname.replace(/\/[^\/]*$/, "/");
+
+  const isGithubUserSite = here.hostname.endsWith(".github.io") && basePath === "/";
+  const projectBase = isGithubUserSite ? `/${PROJECT_FALLBACK}/` : basePath;
+
+  // Try both spellings because mobile uploads often end up renamed.
+  const names = ["data.cleaned.json", "data.cleaned.json", "data.json"];
+
+  const bases = [];
+  // 1) same directory as index.html
+  bases.push(basePath);
+  // 2) if user opened root but data is in project path
+  if (isGithubUserSite) bases.push(projectBase);
+
+  const out = [];
+  for (const b of bases){
+    for (const n of names){
+      out.push(new URL(n, here.origin + b).toString());
+    }
+  }
+  // De-dupe
+  return Array.from(new Set(out));
+}
+
 async function loadData(){
-  const candidates = ["data.cleaned.json", "data.json"];
-  for (const path of candidates){
+  const candidates = candidatesForCurrentLocation();
+  for (const url of candidates){
     try{
-      const r = await fetch(path, { cache: "no-store" });
-      if(!r.ok) throw new Error(String(r.status));
+      const r = await fetch(url, { cache: "no-store" });
+      if (!r.ok) throw new Error(String(r.status));
       const data = await r.json();
-      LOADED_FROM = path;
       DATA = normalizeLoadedData(data);
+
       const groupCount = Object.keys(DATA || {}).length;
-      const entryCount = Object.values(DATA || {}).reduce((a,arr)=> a + (arr?.length||0), 0);
-      const sample = (() => {
-        for(const arr of Object.values(DATA||{})){
-          for(const e of (arr||[])){
-            const gt = (e._gateTokens||extractGateTokens(e.gate)||[]);
-            if(gt.length) return gt[0];
-          }
+      const entryCount = Object.values(DATA || {}).reduce((a, arr) => a + (arr?.length || 0), 0);
+
+      let sample = "";
+      for (const arr of Object.values(DATA || {})){
+        for (const e of (arr || [])){
+          const gt = extractGateTokens(e.gate);
+          if (gt.length){ sample = gt[0]; break; }
         }
-        return "";
-      })();
-      setBuildInfo(`Build ${DATA_VERSION} • ${LOADED_FROM} • ${groupCount} groups • ${entryCount} entries${sample?` • sample gate ${sample}`:" • no gates found"}`);
-      console.log("[GateCodes] loaded", {path: LOADED_FROM, groupCount, entryCount});
+        if (sample) break;
+      }
+
+      setBuildInfo(`Build ${DATA_VERSION} • loaded • ${groupCount} groups • ${entryCount} entries${sample ? " • sample #" + sample : " • no gates found"}`);
       render();
       return;
     }catch(err){
-      console.warn("[GateCodes] failed to load", path, err);
+      // keep trying
     }
   }
+
   setBuildInfo(`Build ${DATA_VERSION} • failed to load data.json`);
   list.innerHTML = "<div style='padding:60px;text-align:center;color:#666;'>Failed to load data.json</div>";
 }
+
 loadData();
-  });
-
-/* Auto-close "+more" gate dropdown when tapping outside */
-(function enableAutoCloseGateDetails(){
-  function closeAllExcept(targetDetails){
-    document.querySelectorAll("details.gate-expand[open]").forEach(d=>{
-      if(d !== targetDetails) d.removeAttribute("open");
-    });
-  }
-
-  document.addEventListener("click", (e) => {
-    const clickedDetails = e.target.closest?.("details.gate-expand") || null;
-    const clickedSummary = e.target.closest?.("details.gate-expand > summary") || null;
-
-    if (clickedSummary) {
-      closeAllExcept(clickedDetails);
-      return;
-    }
-    if (clickedDetails) return;
-    closeAllExcept(null);
-  }, true);
-
-  window.addEventListener("scroll", () => {
-    document.querySelectorAll("details.gate-expand[open]").forEach(d => d.removeAttribute("open"));
-  }, { passive: true });
-})();
 </script>
-
 </body>
 </html>
